@@ -1,4 +1,6 @@
 const mongoose = require('mongoose')
+const _ = require('lodash');
+
 
 const productSchema = mongoose.Schema({
     name: String,
@@ -9,4 +11,4 @@ const productSchema = mongoose.Schema({
     }
 })
 
-exports.Product = mongoose.model("Product", productSchema)
+module.exports = mongoose.model("Product", productSchema)
