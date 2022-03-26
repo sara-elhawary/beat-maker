@@ -22,21 +22,33 @@ mongoose.connect(process.env.DATABASE_URL, {
     process.exit(1)
 })
 
-app.get(`${api}/`, (req, res) => {
-    const product = {
-        id: 1,
-        prod_name: 'phone',
-        image: 'url'
+
+
+
+
+app.get(`${api}/`, async (req, res) => {
+    const productList = await Product.find()
+
+    if (!productList) {
+        res.status(500).json({ success: false })
     }
-    res.send(product);
+    res.send(productList);
 
 })
 
 app.post(`${api}/`, (req, res) => {
-    const prod = req.body
-    console.log(prod)
-    res.send(prod);
-
+    const { name, image, quantity } = req.body
+    const prod = new Product({
+        name, image, quantity
+    })
+    prod.save().then((createdProd) => {
+        res.status(201).json(createdProd)
+    }).catch((err) => {
+        res.status(500).json({
+            success: false,
+            error: err
+        })
+    })
 })
 
 
