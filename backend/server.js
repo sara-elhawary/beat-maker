@@ -12,7 +12,6 @@ const port = 3000
 const api = process.env.API
 
 
-app.use(express.static('./client/public'))
 app.use(express.json())
 app.use(morgan('tiny'))
 app.use(`${api}/products`, productRouter)
