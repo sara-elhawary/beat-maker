@@ -7,6 +7,7 @@ const cors = require("cors")
 const productRouter = require('./routers/product')
 const orderRouter = require('./routers/order')
 const categoryRouter = require("./routers/category")
+const userRouter = require("./routers/user")
 
 
 const port = 3000
@@ -20,7 +21,7 @@ app.use(morgan('tiny'))
 app.use(`${api}/products`, productRouter)
 app.use(`${api}/orders`, orderRouter)
 app.use(`${api}/cat`, categoryRouter)
-
+app.use(`${api}/users`, userRouter)
 
 require('./db')
 
