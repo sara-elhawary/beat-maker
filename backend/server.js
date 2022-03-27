@@ -4,10 +4,12 @@ const app = express()
 const morgan = require('morgan')
 const cors = require("cors")
 
+
 const productRouter = require('./routers/product')
 const orderRouter = require('./routers/order')
 const categoryRouter = require("./routers/category")
 const userRouter = require("./routers/user")
+const JWTAuth = require('./helpers/jwt')
 
 
 const port = 3000
@@ -17,6 +19,7 @@ app.use(cors())
 app.options("*", cors())
 app.use(express.json())
 app.use(morgan('tiny'))
+app.use(JWTAuth())
 
 app.use(`${api}/products`, productRouter)
 app.use(`${api}/orders`, orderRouter)
