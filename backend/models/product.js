@@ -34,10 +34,6 @@ const productSchema = mongoose.Schema({
         type: Number,
         default: 0
     },
-    category: {
-        type: mongoose.Schema.Types.ObjectId,
-        required: true
-    },
     isFeatured: {
         type: Boolean,
         default: false
@@ -54,6 +50,10 @@ const productSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Category',
         required: true
+    },
+    numReviews: {
+        type: Number,
+        default: 0
     }
 
 }, {

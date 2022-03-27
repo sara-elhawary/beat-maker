@@ -5,8 +5,8 @@ const categorySchema = mongoose.Schema({
     name: {
         type: String,
         required: true
-    }
-
+    },
+    color: String,
 }, {
     toJSON: {
         transform: function (doc, ret) {
