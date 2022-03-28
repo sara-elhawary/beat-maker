@@ -7,12 +7,16 @@ const mongoose = require("mongoose")
 //get all products
 router.get("/", async (req, res) => {
     // const productList = await Product.find().select("name image price -_id")
-    const productList = await Product.find().populate("category")
+    // const filteredProducts = await Product.find().populate("category")
 
-    if (!productList) {
+    const { name, description, brand, priceMax, priceMin, ratingMax, ratingMin } = req.query;
+    const filteredProducts = await Product.find({ name: { $regex: name ?? "", $options: 'i' }, description: { $regex: description ?? "", $options: 'i' }, price: { $gt: priceMin ?? 0, $lt: priceMax ?? 200 }, rating: { $gt: ratingMin ?? 0, $lt: ratingMax ?? 5 } })
+
+    if (!filteredProducts) {
         res.status(500).json({ success: false })
     } else {
-        res.send(productList);
+        console.log(filteredProducts)
+        res.send(filteredProducts);
     }
 })
 
