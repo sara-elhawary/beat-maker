@@ -21,7 +21,7 @@ app.use(cors())
 app.options("*", cors())
 app.use(express.json())
 app.use(morgan('tiny'))
-app.use(JWTAuth())
+// app.use(JWTAuth())
 app.use(errorHandler)
 
 app.use(`${api}/products`, productRouter)

@@ -10,7 +10,7 @@ router.get("/", async (req, res) => {
     // const filteredProducts = await Product.find().populate("category")
 
     const { name, description, brand, priceMax, priceMin, ratingMax, ratingMin } = req.query;
-    const filteredProducts = await Product.find({ name: { $regex: name ?? "", $options: 'i' }, description: { $regex: description ?? "", $options: 'i' }, price: { $gt: priceMin ?? 0, $lt: priceMax ?? 200 }, rating: { $gt: ratingMin ?? 0, $lt: ratingMax ?? 5 } })
+    const filteredProducts = await Product.find({ name: { $regex: name ?? "", $options: 'i' }, description: { $regex: description ?? "", $options: 'i' }, price: { $gte: priceMin ?? 2, $lte: priceMax ?? 1000000 }, rating: { $gte: ratingMin ?? 0, $lte: ratingMax ?? 5 } })
 
     if (!filteredProducts) {
         res.status(500).json({ success: false })
