@@ -9,7 +9,11 @@ module.exports = () => {
         .unless({
             path: [
                 {
-                    url: '/api/v1/products'
+                    url: '/\/api\/v1\/products(.*)/'
+                    , method: ["GET", "OPTIONS"]
+                },
+                {
+                    url: '/\/api\/v1\/categories(.*)/'
                     , method: ["GET", "OPTIONS"]
                 },
                 '/api/v1/users/register',
