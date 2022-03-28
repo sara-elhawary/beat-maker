@@ -9,7 +9,9 @@ const productRouter = require('./routers/product')
 const orderRouter = require('./routers/order')
 const categoryRouter = require("./routers/category")
 const userRouter = require("./routers/user")
+
 const JWTAuth = require('./helpers/jwt')
+const errorHandler = require('./helpers/error-handler')
 
 
 const port = 3000
@@ -20,6 +22,7 @@ app.options("*", cors())
 app.use(express.json())
 app.use(morgan('tiny'))
 app.use(JWTAuth())
+app.use(errorHandler)
 
 app.use(`${api}/products`, productRouter)
 app.use(`${api}/orders`, orderRouter)

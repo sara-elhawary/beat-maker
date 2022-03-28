@@ -17,12 +17,12 @@ router.get("/", async (req, res) => {
 })
 
 
-//post a new user
-router.post('/', async (req, res) => {
+//register a new user
+router.post('/register', async (req, res) => {
     const { name, email, isAdmin, phone } = req.body
-    const newUser = new User({ name, email, isAdmin, phone, passwordHash: bCrypt.hashSync(req.body.password, 10) })
+    let newUser = new User({ name, email, isAdmin, phone, passwordHash: bCrypt.hashSync(req.body.password, 10) })
 
-    newUser.save()
+    newUser = await newUser.save()
     if (!newUser) {
         res.status(500).json({ msg: "can't save" })
     }
@@ -85,4 +85,7 @@ router.post("/login", async (req, res) => {
         res.status(400).json({ success: false, msg: "Invalid cerdentials" })
     }
 })
+
+
+
 module.exports = router
