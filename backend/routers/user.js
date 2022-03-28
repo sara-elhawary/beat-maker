@@ -79,7 +79,7 @@ router.post("/login", async (req, res) => {
         return res.status(400).json({ msg: "user not found", success: false })
     }
     if (user && bCrypt.compareSync(password, user.passwordHash)) {
-        const token = jwt.sign({ user: user.Id }, process.env.TOKEN_SECRET)
+        const token = jwt.sign({ userId: user.Id, isAdmin: user.isAdmin }, process.env.TOKEN_SECRET)
         res.status(200).json({ success: true, user: user.email, token })
     } else {
         res.status(400).json({ success: false, msg: "Invalid cerdentials" })
