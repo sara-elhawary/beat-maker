@@ -37,15 +37,15 @@ const orderSchema = mongoose.Schema({
     city: {
         type: String,
         required: true
-    }, State: {
+    }, state: {
         type: String,
         required: true
-    }, Country: {
+    }, country: {
         type: String,
         required: true
     },
-    Phone: {
-        type: Number,
+    phone: {
+        type: String,
         required: true
     },
     createdOn: {
