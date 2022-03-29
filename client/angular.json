@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "projects": {
+    "admin": "apps/admin",
+    "admin-e2e": "apps/admin-e2e",
+    "beat-maker": "apps/beat-maker",
+    "beat-maker-e2e": "apps/beat-maker-e2e"
+  }
+}

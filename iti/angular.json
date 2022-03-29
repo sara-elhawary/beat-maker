@@ -1,9 +1,0 @@
-{
-  "version": 2,
-  "projects": {
-    "admin": "apps/admin",
-    "admin-e2e": "apps/admin-e2e",
-    "beat-maker-ecommerce": "apps/beat-maker-ecommerce",
-    "beat-maker-ecommerce-e2e": "apps/beat-maker-ecommerce-e2e"
-  }
-}
