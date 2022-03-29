@@ -1,0 +1,28 @@
+{
+  "root": "apps/beat-maker-ecommerce-e2e",
+  "sourceRoot": "apps/beat-maker-ecommerce-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/beat-maker-ecommerce-e2e/cypress.json",
+        "devServerTarget": "beat-maker-ecommerce:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "beat-maker-ecommerce:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/beat-maker-ecommerce-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["beat-maker-ecommerce"]
+}
