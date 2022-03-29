@@ -5,12 +5,12 @@
 //     return expressJWT({
 //         secret,
 //         algorithms: ['HS256'],
-//         // isRevoked: async (req, payload, done) => {
-//         //     if (!payload.isAdmin) {
-//         //         done(null, true)
-//         //     }
-//         //     done()
-//         // }
+//         isRevoked: async (req, payload, done) => {
+//             if (!payload.isAdmin) {
+//                 done(null, true)
+//             }
+//             done()
+//         }
 //     })
 //         .unless({
 //             path: [
