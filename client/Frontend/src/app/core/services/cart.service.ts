@@ -38,7 +38,10 @@ export class CartService {
         if (itemExist) {
             cart.items?.map(item => {
                 if (item.productId === cartItem.productId) {
-                    item.quantity = item.quantity + cartItem.quantity
+                    // item.quantity+=cartItem.quantity
+                    let pre = 1
+                    let post = 1
+                    item.quantity = pre + post
                 }
                 return item
             })
