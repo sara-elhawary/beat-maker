@@ -4,7 +4,7 @@ const Product = require('../models/product')
 const Category = require("../models/category")
 const mongoose = require("mongoose")
 
-// get all products
+// get all products with search and category filters
 router.get("/", async (req, res) => {
     // const productList = await Product.find().select("name image price -_id")
 
@@ -12,7 +12,7 @@ router.get("/", async (req, res) => {
     let filter={}
     if (categories) {
     filter = categories.split(',') 
-            console.log(filter)
+            // console.log(filter)
     }else{
         filter=await (await Category.find()).map((cat)=>{
             return cat.id
