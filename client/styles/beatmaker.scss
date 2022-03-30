@@ -1,3 +1,15 @@
-body {
-  color: red;
-}
+@import './base/colors.scss';
+@import './base/font.scss';
+@import './base/mixins.scss';
+@import './base/configuration.scss';
+
+@import '~primeicons/primeicons.css';
+@import '~primeng/resources/themes/saga-blue/theme.css';
+
+@import './apps/beatmaker/pages/home-page.scss';
+@import './apps/beatmaker/pages/product-list.scss';
+
+@import './apps/beatmaker/shared/footer.scss';
+@import './apps/beatmaker/shared/header.scss';
+
+@import './libs/ui/ui.scss';
