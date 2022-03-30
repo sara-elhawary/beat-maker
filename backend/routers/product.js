@@ -4,37 +4,44 @@ const Product = require('../models/product')
 const Category = require("../models/category")
 const mongoose = require("mongoose")
 
-//get all products
+// get all products
 router.get("/", async (req, res) => {
     // const productList = await Product.find().select("name image price -_id")
-    // const filteredProducts = await Product.find().populate("category")
 
-    const { name, description, brand, priceMax, priceMin, ratingMax, ratingMin } = req.query;
-    const filteredProducts = await Product.find({ name: { $regex: name ?? "", $options: 'i' }, description: { $regex: description ?? "", $options: 'i' }, price: { $gte: priceMin ?? 2, $lte: priceMax ?? 1000000 }, rating: { $gte: ratingMin ?? 0, $lte: ratingMax ?? 5 } })
+    const { name, priceMax, priceMin, ratingMax, ratingMin,categories} = req.query;
+    let filter={}
+    if (categories) {
+    filter = categories.split(',') 
+            console.log(filter)
+    }else{
+        filter=await (await Category.find()).map((cat)=>{
+            return cat.id
+        })
+    }
+    const filteredProducts = await Product.find({name: { $regex: name ?? "", $options: 'i' },  price: { $gte: priceMin ?? 2, $lte: priceMax ?? 1000000 }, rating: { $gte: ratingMin ?? 0, $lte: ratingMax ?? 5 }, category:{$in :filter}})
 
     if (!filteredProducts) {
         res.status(500).json({ success: false })
     } else {
-        console.log(filteredProducts)
         res.send(filteredProducts);
     }
 })
 
 
-//get products by category
-router.get("/", async (req, res) => {
-    let filter = {}
-    if (req.query.categories) {
-        filter = { categories: req.query.categories.split(",") }
-    }
-    const productList = await Product.find(filter).populate("category")
+// get products by category
+// router.get(`/`, async (req, res) => {
+//     let filter = {};
+//     if (req.query.categories) {
+//         filter = { category: req.query.categories.split(',') };
+//     }
 
-    if (!productList) {
-        res.status(500).json({ success: false })
-    } else {
-        res.send(productList);
-    }
-})
+//     const productList = await Product.find(filter).populate('category');
+
+//     if (!productList) {
+//         res.status(500).json({ success: false });
+//     }
+//     res.send(productList);
+// });
 
 //get products count
 router.get("/get/count", async (req, res) => {
