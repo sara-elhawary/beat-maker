@@ -1,3 +1,4 @@
+import { ProductsModule } from './../../../../libs/products/src/lib/products.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -18,7 +19,7 @@ const routes:Routes=[
 
 @NgModule({
   declarations: [AppComponent, NxWelcomeComponent, HomePageComponent, ProductListComponent, HeaderComponent, FooterComponent],
-  imports: [BrowserModule,BrowserAnimationsModule,RouterModule.forRoot(routes),UiModule,ProgressBarModule],
+  imports: [BrowserModule,BrowserAnimationsModule,RouterModule.forRoot(routes),UiModule,ProgressBarModule,ProductsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
