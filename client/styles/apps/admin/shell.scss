@@ -58,9 +58,10 @@
     }
     &-main{
         width:calc(100% - 175px);
-        padding-left:200px;
-        background-color:red;
+        padding-left:200px;       
     }
-
-  
+    &-page{
+        padding:15px;
+        margin-top:20px;
+    }
 }

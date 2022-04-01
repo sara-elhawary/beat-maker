@@ -1,5 +1,11 @@
-import { Component, NgModule } from '@angular/core';
+import {  NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+
+
+import {CardModule} from 'primeng/card';
+import {ToolbarModule} from 'primeng/toolbar';
+import {ButtonModule} from 'primeng/button';
+
 
 import { AppComponent } from './app.component';
 import { NxWelcomeComponent } from './nx-welcome.component';
@@ -7,11 +13,10 @@ import { Route, RouterModule } from '@angular/router';
 import { ShellComponent } from './shared/shell/shell.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
-import { dashCaseToCamelCase } from '@angular/compiler/src/util';
 import { ProductsComponent } from './pages/products/products.component';
 import { UsersComponent } from './pages/users/users.component';
-import { CategoriesComponent } from './pages/categories/categories.component';
 import { OrdersComponent } from './pages/orders/orders.component';
+import { CategoriesListComponent } from './categories/categories-list/categories-list.component';
 
 const routes:Route[]=[{
   path:'',
@@ -30,16 +35,20 @@ const routes:Route[]=[{
     },
     {
       path:"categories",
-      component:CategoriesComponent
+      component:CategoriesListComponent
+    },
+    {
+      path:"orders",
+      component:OrdersComponent
     }
   ]
 },
 ]
 @NgModule({
-  declarations: [AppComponent, NxWelcomeComponent, ShellComponent, DashboardComponent, SidebarComponent, ProductsComponent, UsersComponent, CategoriesComponent, OrdersComponent],
+  declarations: [AppComponent, NxWelcomeComponent, ShellComponent, DashboardComponent, SidebarComponent, ProductsComponent, UsersComponent,  OrdersComponent, CategoriesListComponent],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes, { initialNavigation: 'enabled' }),
+    RouterModule.forRoot(routes, { initialNavigation: 'enabled' },),CardModule,ToolbarModule,ButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent],
