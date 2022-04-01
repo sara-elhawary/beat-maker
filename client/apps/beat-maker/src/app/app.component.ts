@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'client-root',
+  selector: 'beatmaker-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
