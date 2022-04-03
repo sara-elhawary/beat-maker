@@ -14,7 +14,7 @@ import {ProgressBarModule} from 'primeng/progressbar';
 
 
 const routes:Routes=[
-  {path:'',component:HomePageComponent},{path:"products",component:ProductListComponent},
+  {path:'',component:HomePageComponent ,pathMatch:"full"},{path:"products",component:ProductListComponent},
 ]
 
 @NgModule({
