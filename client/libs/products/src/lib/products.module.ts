@@ -3,13 +3,20 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Route } from '@angular/router';
 import { ProductItemComponent } from './components/product-item/product-item.component';
 import { ButtonModule } from 'primeng/button';
-export const productsRoutes: Route[] = [];
+import { ProductListComponent } from './pages/product-list/product-list.component';
+export const productsRoutes: Route[] = [ 
+  {
+    path: 'products',
+    component: ProductListComponent
+  }
+];
 
 @NgModule({
-  imports: [CommonModule, RouterModule,ButtonModule],
-  exports:[ProductItemComponent],
+  imports: [CommonModule, RouterModule.forChild(productsRoutes),ButtonModule],
+  exports:[ProductItemComponent,ProductListComponent],
   declarations: [
-    ProductItemComponent
+    ProductItemComponent,
+    ProductListComponent
   ],
 })
 export class ProductsModule {}

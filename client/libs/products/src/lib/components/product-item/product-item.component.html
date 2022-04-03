@@ -1,11 +1,12 @@
 <div class="product-item" *ngIf="product">
-    <div class="produuct-item-wrapper">
-        <img [src]="product.image" class="image" alt="">
-        <h4 class="name">{{ product.name }}</h4>
-        <h3 class="price">{{ product.price | currency }}</h3>
-        <p-button styleClass="p-mt-3 add-to-cart"
-        label="Add to Cart"
+    <div class="product-item-wrapper">
+      <img [src]="product.image" class="product-image" alt="" />
+      <h4 class="name">{{ product.name }}</h4>
+      <h5 class="price">{{ product.price | currency }}</h5>
+      <p-button
+        styleClass="p-mt-3 add-to-cart"
+        label="Add to cart"
         icon="pi pi-shopping-cart"
-        ></p-button>
-    </div> 
-</div>
+      ></p-button>
+    </div>
+  </div>

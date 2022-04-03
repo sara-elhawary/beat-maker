@@ -11,19 +11,20 @@
       margin-top: 85px;
     }
   
-    .image {
-      width: 60%;
-      height: 150px;
+    .product-image {
+      border:red solid 1px ;
+      max-width: 20%;
+      
       margin-top: -85px;
     }
   
     .name {
+      color: black;
       margin: 10px 0;
     }
   
     .price {
-      // color: $primary-color;
-      color:black;
+      color: black;
       font-size: 1.2em;
       margin: 0;
     }

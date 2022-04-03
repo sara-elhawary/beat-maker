@@ -1,0 +1,12 @@
+<div class="products-page">
+    <div class="grid" id="container">
+        <div class="col-3" id=""car>Categories</div>
+        <div class="col-9">
+            <div class="grid">
+                <div class="col-4" *ngFor="let product of products">                
+                       <products-product-item [product]="product" class="item"></products-product-item>                
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
