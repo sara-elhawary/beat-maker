@@ -9,25 +9,20 @@ import { CategoriesService } from '@client/products';
 })
 export class CategoriesFormComponent implements OnInit {
 
-  
+  catForm:FormGroup=new FormGroup({
+    name: new FormControl(' ',[Validators.required,Validators.minLength(3)]),
+  });
 
-  constructor(private categoriesService:CategoriesService,private fb:FormBuilder) { }
-  catForm = this.fb.group({
-    name: [''],
-  })
+  constructor(private categoriesService:CategoriesService) { }
 
   ngOnInit(): void {
-    this.catForm = new FormGroup({
-      catName: new FormControl(' ',Validators.required),
-    });
   }
 
   addCategory(){
-    console.log(this.catForm.valid)
-    // if(this.categoryForm.invalid){
-    //  return;
+    // console.log(this.catForm.value)
+    // if(!this.catForm.valid)return;
+    console.log(this.catForm.value)
     // }
-
   }
 
 }

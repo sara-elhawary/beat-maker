@@ -11,5 +11,11 @@ export class HomePageComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  images = ['assets/images/homePage/h.jpg','assets/images/homePage/z1.jpg',
+'assets/images/homePage/z3.jpg'];
 
+  GoToShop()
+  {
+    
+  }
 }

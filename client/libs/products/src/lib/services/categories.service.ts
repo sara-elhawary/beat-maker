@@ -14,10 +14,10 @@ export class CategoriesService {
   constructor(private httpClient:HttpClient) { }
 
 
-  getCategories():Observable <Category[]>{
-    return this.httpClient.get<Category[]>("http://localhost:3000/api/v1/cat")
+  getCats():Observable <Category[]>{
+    return this.httpClient.get<Category[]>("http://localhost:3000/cat")
   }
-  createCategories(cateory:Category){
-    return this.httpClient.post("http://localhost:3000/api/v1/cat",cateory)
-  }
+  // createCats(cateory:Category){
+  //   return this.httpClient.post("http://localhost:3000/api/v1/cat",cateory)
+  // }
 }
