@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-module.exports = mongoose.connect("mongodb+srv://elhawarysara92:ysbIz3RA48AR2mFa@cluster0.t556b.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", {
+module.exports = mongoose.connect("mongodb+srv://ahmedismail40000:22Oz7X2L4SEUrBRJ@cluster0.t556b.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     dbName: 'ECOMMERCE'

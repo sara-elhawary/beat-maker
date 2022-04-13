@@ -15,19 +15,19 @@ const errorHandler = require('./helpers/error-handler')
 
 
 const port = 3000
-const api = process.env.API
+// const api = process.env.API
 
 app.use(cors())
 app.options("*", cors())
 app.use(express.json())
 app.use(morgan('tiny'))
-// app.use(JWTAuth())
+app.use(JWTAuth())
 app.use(errorHandler)
 
 app.use(`/products`, productRouter)
-app.use(`${api}/orders`, orderRouter)
+app.use(`/orders`, orderRouter)
 app.use(`/cat`, categoryRouter)
-app.use(`${api}/users`, userRouter)
+app.use(`/users`, userRouter)
 
 require('./db')
 

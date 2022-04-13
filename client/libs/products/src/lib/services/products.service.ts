@@ -15,5 +15,7 @@ export class ProductsService {
     }
     return this._HttpClient.get(`http://localhost:3000/products`,{params:prams});
   }
-
+  getProductDetails(id:string):Observable<any>{
+    return this._HttpClient.get(`http://localhost:3000/products/${id}`);
+  }  
 }

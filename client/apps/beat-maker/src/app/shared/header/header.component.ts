@@ -33,7 +33,7 @@ export class HeaderComponent implements OnInit {
   {
     // this.HomeService.GoToHome();
   }
-  GoToSignUp()
+  GoToLogin()
   {
     // this.HomeService.GoToSignUp();
 

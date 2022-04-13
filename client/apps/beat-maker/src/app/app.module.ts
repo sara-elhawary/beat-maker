@@ -1,3 +1,5 @@
+
+import { UsersModule } from './../../../../libs/users/src/lib/users.module';
 import { ProductsModule } from './../../../../libs/products/src/lib/products.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -16,12 +18,12 @@ import { HeaderComponent } from './shared/header/header.component';
 
 
 const routes:Routes=[
-  {path:'',component:HomePageComponent ,pathMatch:"full"},
+  {path:'',component:HomePageComponent ,pathMatch:"full"}
 ]
 
 @NgModule({
   declarations: [AppComponent, NxWelcomeComponent, HomePageComponent,HeaderComponent, FooterComponent],
-  imports: [BrowserModule,BrowserAnimationsModule,RouterModule.forRoot(routes),UiModule,ProductsModule,HttpClientModule, NgbModule],
+  imports: [BrowserModule,BrowserAnimationsModule,RouterModule.forRoot(routes),UiModule,UsersModule,ProductsModule,HttpClientModule, NgbModule],
   providers: [],
   bootstrap: [AppComponent],
 })

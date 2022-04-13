@@ -3,3 +3,19 @@
 
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
+@font-face {
+    font-family: Freshmade;
+    src: url(assets/fonts/Freshmade.otf) format("truetype");
+}
+@font-face {
+    font-family: Reborn;
+    src: url(assets/fonts/Reborn.otf) format("truetype");
+}
+
+@font-face {
+    font-family: Rubik;
+    src: url(assets/fonts/Rubik-Regular.ttf) format("truetype");
+}
+body{
+    background-color: black;
+}
